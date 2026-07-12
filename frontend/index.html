@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Expense Tracker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- ================= Sidebar ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <h2>💰 Expense Tracker</h2>
+
+        </div>
+
+        <ul>
+
+            <li class="active" id="dashboardBtn">🏠 Dashboard</li>
+            <li id="addExpenseBtnNav">➕ Add Expense</li>
+            <li id="historyBtn">📋 Expense History</li>
+            <li id="statisticsBtn">📊 Statistics</li>
+            <li id="reportsBtn">📈 Reports</li>
+            <li>⚙ Settings</li>
+            <li id="logoutBtn">🚪 Logout</li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= Main ================= -->
+
+    <div class="main-content">
+
+        <!-- Header -->
+
+        <header>
+
+            <div class="navbar">
+
+                <div>
+
+                    <h1>Smart Expense Tracker</h1>
+
+                    <p>Manage • Track • Save Money</p>
+
+                </div>
+
+                <div class="nav-buttons">
+
+                    <button
+    type="button"
+    id="themeToggle"
+    class="theme-btn">
+
+    🌙
+
+</button>
+
+                    <button
+    type="button"
+    class="profile-btn"
+    id="profileBtn">
+
+    👤 User
+
+</button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <main>
+
+            <!-- Hero -->
+
+            <section class="hero" id="dashboard">
+
+                <div class="hero-left">
+
+                    <h2>
+
+                        Take Control of Your Finances 💸
+
+                    </h2>
+
+                    <p>
+
+                        Track your daily expenses, monitor your monthly budget,
+                        analyze your spending and save smarter.
+
+                    </p>
+
+                    <button type="button"
+                            id="getStartedBtn"
+                            class="hero-btn">
+                        Get Started →
+                    </button>
+
+                </div>
+
+                <div class="hero-right">
+
+                    <div class="hero-card">
+
+                        <h3>Monthly Spending</h3>
+
+                        <h1 id="heroMonthlyExpense">₹0</h1>
+
+                        <span id="heroMonthlyText">Current Month Expense</span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Dashboard -->
+
+            <section class="dashboard">
+
+                <div class="card">
+
+                    <div class="icon">💰</div>
+
+                    <h3>Total Expense</h3>
+
+                    <h2 id="totalExpense">₹0</h2>
+
+                    <small>Overall Spending</small>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="icon">📅</div>
+
+                    <h3>This Month</h3>
+
+                    <h2 id="monthlyExpense">₹0</h2>
+
+                    <small>Current Month</small>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="icon">🏦</div>
+
+                    <h3>Budget Left</h3>
+
+                    <h2 id="budgetLeft">₹0</h2>
+
+                    <small>Available Budget</small>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="icon">📊</div>
+
+                    <h3>Total Records</h3>
+
+                    <h2 id="totalRecords">0</h2>
+
+                    <small>Expenses Added</small>
+
+                </div>
+
+            </section>
+
+            <!-- ================= Add Expense ================= -->
+
+<section class="expense-section" id="addExpense">
+
+    <div class="section-title">
+
+        <h2 id="formTitle">Add New Expense</h2>
+
+        <p>Record your daily expenses quickly and efficiently.</p>
+
+    </div>
+
+    <form class="expense-form">
+
+        <div class="form-grid">
+
+            <div class="input-group">
+
+                <label>Amount</label>
+
+                <input type="number" id="amount" placeholder="Enter Amount">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Category</label>
+
+                <select id="category">
+
+                    <option>Select Category</option>
+                    <option>Food</option>
+                    <option>Travel</option>
+                    <option>Shopping</option>
+                    <option>Education</option>
+                    <option>Entertainment</option>
+                    <option>Health</option>
+                    <option>Bills</option>
+                    <option>Other</option>
+
+                </select>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Date</label>
+
+                <input type="date" id="date">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Payment Method</label>
+
+                <select id="paymentMethod">
+
+                    <option>Select Payment</option>
+                    <option>Cash</option>
+                    <option>UPI</option>
+                    <option>Credit Card</option>
+                    <option>Debit Card</option>
+                    <option>Net Banking</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="input-group full">
+
+            <label>Description</label>
+
+            <textarea id="description" placeholder="Write something about this expense..."></textarea>
+
+        </div>
+
+        <button type="button" id="addExpenseBtn" class="add-btn">
+            <span id="buttonText">Add Expense</span>
+        </button>
+
+    </form>
+
+</section>
+
+<!-- ================= Expense History ================= -->
+
+<section class="expense-history" id="expenseHistory">
+
+    <div id="reports"></div>
+
+    <div class="history-header">
+
+        <div>
+
+            <h2>Expense History</h2>
+
+            <p>Manage all recorded expenses.</p>
+
+        </div>
+
+        <button
+            type="button"
+            id="exportBtn"
+            class="export-btn">
+            Export Report
+        </button>
+
+    </div>
+
+    <div class="history-toolbar">
+
+        <input
+    type="text"
+    id="searchBox"
+    placeholder="Search by Category or Description">
+
+        <select id="sortSelect">
+
+            <option value="">Sort By</option>
+            <option value="date">Date</option>
+            <option value="amount">Amount</option>
+            <option value="category">Category</option>
+
+        </select>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Payment</th>
+                    <th>Description</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="expenseTable">
+
+</tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- ================= Statistics ================= -->
+
+<section class="stats" id="statistics">
+
+    <div class="stat-card">
+
+        
+    <h3>Highest Expense</h3>
+    <h2 id="highestExpense">₹0</h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>Lowest Expense</h3>
+        <h2 id="lowestExpense">₹0</h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>Average Expense</h3>
+        <h2 id="averageExpense">₹0</h2>
+
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+
+    <p>
+
+        © 2026 Smart Expense Tracker | Developed by Tanish
+
+    </p>
+
+</footer>
+
+</div>
+
+</div>
+
+<!-- ================= Statistics Modal ================= -->
+
+<div id="statsModal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="closeStats" class="close">&times;</span>
+
+        <h2>📊 Expense Statistics</h2>
+
+        <p class="modal-subtitle">
+    Live Financial Overview • Updated Automatically
+</p>
+
+        <div class="modal-card">
+
+    <h3>💰 Highest Expense</h3>
+
+    <h2 id="modalHighest">₹0</h2>
+
+    <div class="progress">
+
+        <div id="highestBar" class="progress-fill"></div>
+
+    </div>
+
+</div>
+
+       <div class="modal-card">
+
+    <h3>💸 Lowest Expense</h3>
+
+    <h2 id="modalLowest">₹0</h2>
+
+    <div class="progress">
+
+        <div id="lowestBar" class="progress-fill"></div>
+
+    </div>
+
+</div>
+
+        <div class="modal-card">
+
+    <h3>📈 Average Expense</h3>
+
+    <h2 id="modalAverage">₹0</h2>
+
+    <div class="progress">
+
+        <div id="averageBar" class="progress-fill"></div>
+
+    </div>
+
+</div>
+
+        <div class="modal-card">
+
+    <h3>📁 Total Records</h3>
+
+    <h2 id="modalRecords">0</h2>
+
+    <div class="progress">
+
+        <div id="recordBar" class="progress-fill"></div>
+
+    </div>
+
+</div>
+
+    </div>
+
+</div>
+
+<!-- ================= Reports Modal ================= -->
+
+<div id="reportModal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="closeReport" class="close">&times;</span>
+
+        <h2>📈 Expense Report</h2>
+
+        <p class="modal-subtitle">
+    Download your latest expense report
+</p>
+
+        <div class="modal-card">
+            <h3>Total Expense</h3>
+            <h2 id="reportTotal">₹0</h2>
+        </div>
+
+        <div class="modal-card">
+            <h3>This Month</h3>
+            <h2 id="reportMonth">₹0</h2>
+        </div>
+
+        <button
+            id="reportExportBtn"
+            class="export-btn">
+
+            📥 Export CSV
+
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+if (localStorage.getItem("loggedIn") !== "true")
+{
+    window.location.href = "login.html";
+}
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
