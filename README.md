@@ -60,25 +60,6 @@ A modern Expense Tracker application developed using **C++**, **HTML**, **CSS**,
 
 ---
 
-# 📂 Project Structure
-
-
-ExpenseTracker
-│
-├── backend
-│   ├── include
-│   ├── src
-│   ├── data
-│   └── ...
-│
-├── frontend
-│   ├── index.html
-│   ├── login.html
-│   ├── style.css
-│   ├── login.css
-│   ├── script.js
-│   └── auth.js
-│
 
 
 # 👨‍💻 Developer
